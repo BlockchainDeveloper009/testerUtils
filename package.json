@@ -1,0 +1,23 @@
+{
+  "name": "testerutils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ui-headed": "npx playwright test --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlockchainDeveloper009/testerUtils.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlockchainDeveloper009/testerUtils/issues"
+  },
+  "homepage": "https://github.com/BlockchainDeveloper009/testerUtils#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.34.1"
+  }
+}
