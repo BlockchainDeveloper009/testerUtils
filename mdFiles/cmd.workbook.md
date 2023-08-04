@@ -33,3 +33,8 @@ Visit https://playwright.dev/docs/intro for more information. ✨
 
 Happy hacking! 🎭
 PS C:\source\repos\nodejs_dev\testerUtils>
+
+# record existing chrome session
+https://stackoverflow.com/questions/71362982/is-there-a-way-to-connect-to-my-existing-browser-session-using-playwright
+
+npx playwright codegen https://www.google.com

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ui-headed": "npx playwright test --ui"
+    "ui-headed": "npx playwright test --ui",
+    "google index": "npx playwright test --ui",
+    "fetch_stocks": "npx playwright test ./tests_api/test_stocks_api.spec.ts --ui"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,10 @@
   },
   "homepage": "https://github.com/BlockchainDeveloper009/testerUtils#readme",
   "devDependencies": {
-    "@playwright/test": "^1.34.1"
+    "@playwright/test": "^1.34.1",
+    "axios": "^1.4.0"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.4"
   }
 }
