@@ -2,3 +2,36 @@ node_modules/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+dist/
+build/
+coverage/
+
+# Environment files - keep .env.example only
+.env
+.env.local
+.env.*.local
+.env.dev
+.env.stage
+.env.test
+!.env.example
+
+# IDE files
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*.swn
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Misc
+*.tmp
+.tmp/
+temp/

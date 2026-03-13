@@ -1,5 +1,10 @@
 {
-    "recommendations": [
-        "ms-playwright.playwright"
-    ]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-playwright.playwright",
+    "eamodio.gitlens",
+    "ms-vscode.makefile-tools",
+    "ms-vscode.theme-tomorrowkit"
+  ]
 }
