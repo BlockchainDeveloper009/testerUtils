@@ -1,5 +1,7 @@
 import * as fs from 'fs';
 import { defineConfig, devices } from '@playwright/test';
+import type { PlaywrightTestConfig } from '@playwright/test';
+
 
 /**
  * Load environment variables from .env file
@@ -34,6 +36,21 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
 
+    /* Base URL for the Conduit/RealWorld App */
+    // baseURL: 'https://demo.learnwebdriverio.com',
+    baseURL: 'https://jsonplaceholder.typicode.com',
+    extraHTTPHeaders: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+
+    /* Collect trace when retrying a failed test. See https://playwright.dev/docs/trace-viewer */
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+
+    /* For Senior Portfolio: demonstrate state sharing */
+    // storageState: 'auth.json',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: process.env.CI ? 'on' : 'on-first-retry',
 
@@ -46,6 +63,7 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    { name: 'api', testMatch: 'tests/api/**/*.spec.ts' },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
