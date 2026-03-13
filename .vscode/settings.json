@@ -1,0 +1,9 @@
+{
+    "playwright.env": {
+        
+
+    },
+    "playwright.runGlobalSetupOnEachRun": true,
+    "playwright.reuseBrowser": true,
+    "playwright.pickLocatorCopyToClipboard": true
+}

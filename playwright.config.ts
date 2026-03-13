@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+import type { PlaywrightTestConfig } from '@playwright/test';
+
 
 /**
  * Read environment variables from file.
@@ -26,12 +28,26 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    /* Base URL for the Conduit/RealWorld App */
+    // baseURL: 'https://demo.learnwebdriverio.com',
+    baseURL: 'https://jsonplaceholder.typicode.com',
+    extraHTTPHeaders: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+
+    /* Collect trace when retrying a failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+
+    /* For Senior Portfolio: demonstrate state sharing */
+    // storageState: 'auth.json',
   },
 
   /* Configure projects for major browsers */
   projects: [
+    { name: 'api', testMatch: 'tests/api/**/*.spec.ts' },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
