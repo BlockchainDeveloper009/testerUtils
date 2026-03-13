@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.git/
+.github/
+build/
+coverage/
+.playwright/
+playwright-report/
+test-results/
+*.md
+.env
+.env.*
+package-lock.json

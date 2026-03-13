@@ -1,10 +1,15 @@
+import * as fs from 'fs';
 import { defineConfig, devices } from '@playwright/test';
 
 /**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
+ * Load environment variables from .env file
+ * Safely loads dotenv if file exists, with fallback to process.env
  */
-// require('dotenv').config();
+const envPath = process.env.ENV_FILE || '.env';
+if (fs.existsSync(envPath)) {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  require('dotenv').config({ path: envPath });
+}
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -20,15 +25,24 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['junit', { outputFile: 'test-results/junit.xml' }],
+    ['html', { outputFolder: 'playwright-report' }],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: process.env.CI ? 'on' : 'on-first-retry',
+
+    /* Screenshot on failure for debugging */
+    screenshot: 'only-on-failure',
   },
+
+  /* Global setup/teardown */
+  globalSetup: 'utils/globalSetup.ts',
 
   /* Configure projects for major browsers */
   projects: [
@@ -64,7 +78,7 @@ export default defineConfig({
     // },
     // {
     //   name: 'Google Chrome',
-    //   use: { ..devices['Desktop Chrome'], channel: 'chrome' },
+    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
 

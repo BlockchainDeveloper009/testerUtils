@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.git/
+.github/
+*.min.js
+build/
+coverage/
+.playwright/
+playwright-report/
+test-results/
+.env
+.env.*
+!.env.example
