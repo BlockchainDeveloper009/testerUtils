@@ -17,10 +17,23 @@
     /* Path aliases for clean imports */
     "baseUrl": ".",
     "paths": {
+      "@src/*": ["./src/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@decorators/*": ["./src/decorators/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@types/*": ["./src/types/*"],
+      "@config/*": ["./src/config/*"],
       "@lib/*": ["./src/lib/*"],
       "@tests/*": ["./tests/*"],
-      "@utils/*": ["./src/utils/*"]
-    }
+      "@fixtures/*": ["./tests/fixtures/*"],
+      "@testData/*": ["./tests/data/*"]
+    },
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist", ".git"]

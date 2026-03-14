@@ -22,7 +22,22 @@
     "test:ci": "CI=true npm test -- --reporter=junit",
     "ui-headed": "npx playwright test --ui",
     "google index": "npx playwright test --ui",
-    "fetch_stocks": "npx playwright test ./tests_api/test_stocks_api.spec.ts --ui"
+    "fetch_stocks": "npx playwright test ./tests_api/test_stocks_api.spec.ts --ui",
+    "example_api": "npx playwright test --grep @example_api --reporter=html",
+    "api_withoutlib": "npx playwright test --grep @api_withoutlib --project=chromium --reporter=html",
+    "api_withlib_axios": "npx playwright test --grep @api_withlib_axios --project=chromium --reporter=html",
+    "ui:prod": "npx playwright test tests/tests_ui/ --ui",
+    "ui:dev": "TEST_ENV=dev npx playwright test tests/tests_ui/ --ui",
+    "ui:test": "TEST_ENV=test npx playwright test tests/tests_ui/ --ui",
+    "ui:stage": "TEST_ENV=stage npx playwright test tests/tests_ui/ --ui",
+    "ui:prod:headed": "npx playwright test tests/tests_ui/ --headed",
+    "ui:dev:headed": "TEST_ENV=dev npx playwright test tests/tests_ui/ --headed",
+    "ui:test:headed": "TEST_ENV=test npx playwright test tests/tests_ui/ --headed",
+    "ui:stage:headed": "TEST_ENV=stage npx playwright test tests/tests_ui/ --headed",
+    "ui:sauce:prod": "npx playwright test tests/sauceDemo/ --ui",
+    "ui:sauce:dev": "TEST_ENV=dev npx playwright test tests/sauceDemo/ --ui",
+    "ui:sauce:test": "TEST_ENV=test npx playwright test tests/sauceDemo/ --ui",
+    "ui:sauce:stage": "TEST_ENV=stage npx playwright test tests/sauceDemo/ --ui"
   },
   "repository": {
     "type": "git",

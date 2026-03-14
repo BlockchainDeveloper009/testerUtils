@@ -5,7 +5,7 @@
 import { test, expect } from '@playwright/test';
 import { logger, ApiHelper } from '@lib/index';
 
-test.describe('API Testing with Structured Logging', () => {
+test.describe('API Testing with Structured Logging @example_api', () => {
   let api: ApiHelper;
 
   test.beforeAll(() => {
