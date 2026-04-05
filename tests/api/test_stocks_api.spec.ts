@@ -8,7 +8,7 @@ const API_KEY = 'UTMV0TP1H4Z5RE3P'; // Replace with your actual API key
 
 const tickerSymbol = 'AAPL'; // Replace with the desired ticker symbol
 
-async function fetchCurrentPrice( tickerSymbol) {
+async function fetchCurrentPrice( tickerSymbol: string) {
 
     const price_by_ticker_Url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${tickerSymbol}&apikey=${API_KEY}`;
 
